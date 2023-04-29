@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Contact Form </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+      
+      * {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Poppins", sans-serif;
+      }
+      
+      body {
+        background-color: #eecbed;
+      }
+      
+      .main-confirmation {
+        width: 100%;
+        height: 100%;
+        display: none;
+        position: absolute;
+        background-color: #000000bd;
+      }
+      
+      .confirmation {
+        text-align: center;
+        background-color: #fff;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.confirmation li {
+  list-style: none;
+  font-size: 25px;
+  color: #e65b00;
+  line-height: 50px;
+  position: relative;
+  left: 120px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.content {
+  position: relative;
+}
+
+button {
+  background-color: blue;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 20px;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+input.disabled,
+textarea.disabled {
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+form {
+  background-color: #BDBBBB; 
+  /* background-color: white; */
+  display: flex;
+  flex-direction: column;
+  padding: 2vw 4vw;
+  width: 60%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+form h2 {
+  text-align: center;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+form input,
+textarea {
+  border: 0;
+  margin: 10px 0px;
+  padding: 20px;
+  outline: none;
+  background: #f5f5f5;
+  font-size: 16px;
+  border-radius: 10px;
+  resize: none;
+}
+
+form button {
+  background: white;
+  color: #e65b00;
+  border: 1px solid #e65b00;
+  padding: 15px;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  margin: 20px auto 0;
+  border-radius: 30px;
+  transition: all .5s ease-in;
+}
+
+form button:hover {
+  border: 1px solid #e65b00;
+  background: orange;
+  color: white;
+}
+
+.one-check {
+  padding-left: 15px;
+}
+        </style>
+
+
+      </head>
+
+<body>
+    <!-- <div class="main-confirmation" id="alertBox">
+        <div class="confirmation">
+            <div class="content">
+                <li id="close"><i class="fa-solid fa-xmark"></i></li>
+                <p> Are you sure to fill this form. After submitting the form you will not be able to edit the form.</p>
+                <button id="confirm" class="confirm"> Confirm </button>
+            </div>
+        </div> -->
+
+    </div>
+
+    <div class="container">
+        <form id="form" onsubmit="sendEmail() ;reset(); return false;">
+            <h2> CONTACT US </h2>
+            <input class="inputField" type="text" id="name" placeholder="Enter Your Name" required>
+            <input class="inputField" type="email" id="email" placeholder="Enter Your Email" required>
+            <input class="inputField" type="phone" id="phone" placeholder="Enter Your Phone Number" required>
+            <!-- <input class="inputField" type="text" id="coupen" placeholder="Enter Coupen Code" required> -->
+
+            <textarea class="inputField" id="message" rows="4" placeholder="Write Something"></textarea>
+            <button type="submit" id="send">Send</button>
+        </form>
+    </div>
+    <!-- Contact form using HTML and CSS by raju_webdev -->
+</body>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+  function sendEmail(){
+    Email.send({
+    Host : "smtp.gmail.com",
+    Username : "workwithravvviii@gmail.com",
+    Password : "xzwzojmiscnygavu",
+    To : 'workwithravvviii@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "NEW CONTACT FORM ENQUIRY",
+    Body : "Name: "+document.getElementById("name").value
+          +"<br> email:"+ocument.getElementById("email").value
+          +"<br> Phone Number:"+ocument.getElementById("phone").value
+          +"<br> Message:"+ocument.getElementById("message").value
+}).then(
+  message => alert("Message sent Susscesfully")
+);
+  }
+</script>
+
+</html>
